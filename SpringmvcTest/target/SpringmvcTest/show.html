@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script type="text/javascript" src="js/jquery-1.12.2.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		url:"test/json5.do",
+		method:'get',
+		dataType:'json',
+		success:function(data){
+			//{{  }}
+			var dat="";
+			$.each(data,function(i){
+				alert("g:"+data[i].name);
+	dat+="<tr><td>"+data[i].name+
+	"</td><td>"+data[i].age+"</td></tr>";
+			});
+			$("#stuData").html(dat);
+		},
+		error:function(){
+			alert("error");
+		}
+	})
+})
+</script>
+</head>
+<body>
+ajax table!<br/>
+<table border="1" >
+  <thead>
+    <tr>
+     <th>Name</th><th>age</th>
+    </tr>
+  </thead>
+  <tbody id="stuData">
+
+  </tbody>
+</table>
+</body>
+</html>
